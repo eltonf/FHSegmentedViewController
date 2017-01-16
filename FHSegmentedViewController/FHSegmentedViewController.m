@@ -142,7 +142,7 @@
 
 - (void)selectViewController:(NSInteger)index
 {
-    _selectedViewController = self.childViewControllers[index];
+    self.selectedViewController = self.childViewControllers[index];
     [_selectedViewController didMoveToParentViewController:self];
     if (_selectedViewController.navigationItem.rightBarButtonItem) {
         self.navigationItem.rightBarButtonItem = _selectedViewController.navigationItem.rightBarButtonItem;
