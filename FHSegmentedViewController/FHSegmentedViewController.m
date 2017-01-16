@@ -156,7 +156,8 @@
 - (void)setSelectedViewControllerIndex:(NSInteger)index
 {
     if (!_selectedViewController) {
-        [_viewContainer addSubview:[_selectedViewController view]];
+        UIViewController *selectedViewController = self.childViewControllers[index];
+        [_viewContainer addSubview:[selectedViewController view]];
         [self selectViewController:index];
     } else if (index != _selectedViewControllerIndex) {
         [self transitionFromViewController:_selectedViewController toViewController:self.childViewControllers[index] duration:0.0f options:UIViewAnimationOptionTransitionNone animations:nil completion:^(BOOL finished) {
