@@ -8,12 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class FHSegmentedViewController;
+@protocol FHSegmentedDelegate <NSObject>
+- (void)segmentedViewController:(FHSegmentedViewController *)segmentedViewController didChangeToViewController:(UIViewController *)viewController;
+@end
+
 @interface FHSegmentedViewController : UIViewController
 
 @property(nonatomic, assign) UIViewController *selectedViewController;
 @property(nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
 @property(nonatomic, strong) IBOutlet UIView *viewContainer;
 @property(nonatomic, assign) NSInteger selectedViewControllerIndex;
+@property(nonatomic) NSObject<FHSegmentedDelegate> *delegate;
 
 - (void)setViewControllers:(NSArray *)viewControllers;
 - (void)setViewControllers:(NSArray *)viewControllers titles:(NSArray *)titles;

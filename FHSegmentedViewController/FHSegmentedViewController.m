@@ -151,6 +151,7 @@
         self.navigationItem.leftBarButtonItem = _selectedViewController.navigationItem.leftBarButtonItem;
     }
     _selectedViewControllerIndex = index;
+    [self.delegate segmentedViewController:self didChangeToViewController:self.selectedViewController];
 }
 
 - (void)setSelectedViewControllerIndex:(NSInteger)index
